@@ -28,12 +28,15 @@ pipeline {
         }
 
         stage('Terraform Plan') {
-            steps {
-                sh '''
-                  terraform plan -input=false
-                '''
-            }
-        }
+    steps {
+        sh '''
+          terraform plan \
+            -input=false \
+            -no-color \
+            -parallelism=5
+        '''
+    }
+}
 
         stage('Terraform Apply') {
             steps {
