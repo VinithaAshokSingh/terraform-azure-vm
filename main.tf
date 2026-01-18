@@ -60,16 +60,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 }
-
-provider "azurerm" {
-  features {}
-}
-
-resource "azurerm_resource_group" "rg" {
-  name     = var.rg_name
-  location = var.location
-}
-
 resource "azurerm_virtual_network" "vnet" {
   name                = "jenkins-vnet"
   location            = var.location
@@ -123,4 +113,3 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 }
->>>>>>> Fix SSH key handling for Jenkins pipeline
